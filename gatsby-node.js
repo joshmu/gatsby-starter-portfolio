@@ -14,6 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
         ) {
           edges {
             node {
+              timeToRead
               fields {
                 slug
               }
@@ -43,6 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: blogPost,
       context: {
         slug: post.node.fields.slug,
+        timeToRead: post.node.timeToRead,
         previous,
         next,
       },

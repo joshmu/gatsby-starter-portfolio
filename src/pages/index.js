@@ -29,6 +29,10 @@ const BlogIndex = ({ data, location }) => {
                 </Link>
               </h3>
               <small>{node.frontmatter.date}</small>
+              <br />
+              <small>
+                <em>{node.timeToRead}min read</em>
+              </small>
             </header>
             <section>
               <p
@@ -53,10 +57,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___title], order: ASC }) {
       edges {
         node {
           excerpt
+          timeToRead
           fields {
             slug
           }
