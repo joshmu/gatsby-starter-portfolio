@@ -4,7 +4,9 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  const workPost = path.resolve(`./src/templates/work-post.js`)
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+
   const result = await graphql(
     `
       {
@@ -15,6 +17,11 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               timeToRead
+              parent {
+                ... on File {
+                  relativeDirectory
+                }
+              }
               fields {
                 slug
               }
@@ -32,23 +39,40 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  // Create pages.
+  const pages = result.data.allMarkdownRemark.edges
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+  pages.forEach((post, index) => {
+    const previous = index === pages.length - 1 ? null : pages[index + 1].node
+    const next = index === 0 ? null : pages[index - 1].node
 
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        timeToRead: post.node.timeToRead,
-        previous,
-        next,
-      },
-    })
+    const folder = post.node.parent.relativeDirectory.split("/")[0]
+    console.log(folder)
+
+    if (folder === "works") {
+      createPage({
+        path: post.node.fields.slug,
+        component: workPost,
+        context: {
+          slug: post.node.fields.slug,
+          category: folder,
+          previous,
+          next,
+        },
+      })
+    } else if (folder === "blog") {
+      createPage({
+        path: post.node.fields.slug,
+        component: blogPost,
+        context: {
+          slug: post.node.fields.slug,
+          category: folder,
+          timeToRead: post.node.timeToRead,
+          previous,
+          next,
+        },
+      })
+    }
   })
 }
 

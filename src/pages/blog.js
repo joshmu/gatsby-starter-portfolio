@@ -8,11 +8,13 @@ import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMarkdownRemark.edges.filter(
+    edge => edge.node.parent.relativeDirectory.split("/")[0] === "blog"
+  )
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Blog Posts" />
       <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
@@ -60,6 +62,11 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___title], order: ASC }) {
       edges {
         node {
+          parent {
+            ... on File {
+              relativeDirectory
+            }
+          }
           excerpt
           timeToRead
           fields {
