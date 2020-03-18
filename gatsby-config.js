@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Coding Blog`,
+    title: `Artist Portfolio`,
     author: {
       name: `Josh Mu`,
-      summary: `A blog for learning code.`,
+      summary: `Choreography, Performance, Teaching & News.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A Gatsby starter template for Artist Portfolios`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `josh_mu_`,
