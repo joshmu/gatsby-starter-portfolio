@@ -30,7 +30,7 @@ const HomePage = ({ data, location }) => {
       </h3>
       <h3>
         <Link style={{ boxShadow: `none` }} to="/blog">
-          Blog
+          News
         </Link>
       </h3>
     </Layout>
