@@ -1,16 +1,16 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: netlifycms
 
 media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "project"
+    label: "Project"
+    folder: "content/projects"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     editor:
       preview: false
     fields:
