@@ -7,18 +7,15 @@ import SEO from "../components/seo"
 
 const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
+  const { title, intro } = data.markdownRemark.frontmatter
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="About Page" />
       <Bio />
-      <h1>About</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla beatae
-        dolore sint iure culpa ratione sunt enim ullam illum quisquam dolorum
-        qui nesciunt, doloribus amet? Nostrum repudiandae blanditiis quas
-        delectus.
-      </p>
+      {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
+      <h2>{title}</h2>
+      <p>{intro}</p>
       <h3>
         <Link style={{ boxShadow: `none` }} to="/">
           Back Home
@@ -31,10 +28,19 @@ const AboutPage = ({ data, location }) => {
 export default AboutPage
 
 export const pageQuery = graphql`
-  query {
+  query AboutPageBySlug($slug: String!) {
     site {
       siteMetadata {
         title
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        intro
       }
     }
   }

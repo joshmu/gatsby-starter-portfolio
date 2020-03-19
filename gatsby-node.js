@@ -156,3 +156,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+// deleting pages and recreating to provide context for graphql queries
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+
+  // console.log({ page })
+
+  if (page.internalComponentName === "ComponentAbout") {
+    deletePage(page)
+    // You can access the variable "house" in your page queries now
+    createPage({
+      ...page,
+      context: {
+        ...page.context,
+        slug: `/pages/about/`,
+      },
+    })
+  }
+}
