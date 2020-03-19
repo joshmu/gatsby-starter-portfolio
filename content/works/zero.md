@@ -19,4 +19,4 @@ Video: Pedro Grieg
 View Zero on Vimeo: (password: joshmuzero)
 [zero wide angle footage](https://vimeo.com/394136844).
 
-![chloe's hair in performance](./hair.jpeg)
+![chloe's hair in performance](../assets/hair.jpeg)

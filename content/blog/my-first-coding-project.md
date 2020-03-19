@@ -20,4 +20,4 @@ We're building a Gatsby sit.
 let name = "Josh"
 ```
 
-![open computer with code displayed](./computer.jpeg)
+![open computer with code displayed](../assets/computer.jpeg)

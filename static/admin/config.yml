@@ -3,7 +3,7 @@ backend:
   branch: master
 
 media_folder: content/assets
-public_folder: /
+public_folder: ../assets/
 
 collections:
   - label: "Pages"
