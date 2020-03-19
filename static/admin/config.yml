@@ -6,6 +6,19 @@ media_folder: content/assets
 public_folder: /
 
 collections:
+  - name: "home"
+    label: "Homepage"
+    file: "site/content/_home.md"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Intro", name: "intro", widget: "markdown" }
+  - name: "about"
+    label: "About"
+    file: "site/content/_about.md"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "One Liner", name: "short description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   - name: "project"
     label: "Project"
     folder: "content/projects"
