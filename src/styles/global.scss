@@ -1,0 +1,20 @@
+$font-stack: Helvetica, sans-serif;
+$indigo50: #e8eaf6;
+$indigo600: #3949ab;
+$grey900: #212121;
+$red500: #f44336;
+$primary: $indigo600;
+$warning: $red500;
+
+html {
+  background-color: $indigo50;
+}
+
+body {
+  font: 100% $font-stack;
+  color: $grey900;
+}
+
+a {
+  color: $primary;
+}
