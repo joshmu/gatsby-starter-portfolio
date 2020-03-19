@@ -11,7 +11,7 @@ collections:
     files:
       - label: "About Page"
         name: "about"
-        file: "/content/about.md"
+        file: "/content/pages/about.md"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
@@ -24,7 +24,7 @@ collections:
               - { label: Photo, name: photo, widget: image }
       - label: "Locations Page"
         name: "locations"
-        file: "/content/locations.md"
+        file: "/content/pages/locations.md"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
