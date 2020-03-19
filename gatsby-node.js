@@ -61,6 +61,7 @@ const gatsbyNodeGraphQL = `
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  const projectPost = path.resolve(`./src/templates/project-post.js`)
   const workPost = path.resolve(`./src/templates/work-post.js`)
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
 
@@ -104,9 +105,19 @@ exports.createPages = async ({ graphql, actions }) => {
     const next = index === 0 ? null : pages[index - 1].node
 
     const folder = post.node.parent.relativeDirectory.split("/")[0]
-    console.log(folder)
 
-    if (folder === "works") {
+    if (folder === "projects") {
+      createPage({
+        path: post.node.fields.slug,
+        component: projectPost,
+        context: {
+          slug: post.node.fields.slug,
+          category: folder,
+          previous,
+          next,
+        },
+      })
+    } else if (folder === "works") {
       createPage({
         path: post.node.fields.slug,
         component: workPost,

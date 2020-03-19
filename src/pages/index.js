@@ -19,6 +19,11 @@ const HomePage = ({ data, location }) => {
         </Link>
       </h3>
       <h3>
+        <Link style={{ boxShadow: `none` }} to="/projects">
+          Projects
+        </Link>
+      </h3>
+      <h3>
         <Link style={{ boxShadow: `none` }} to="/works">
           Works
         </Link>
