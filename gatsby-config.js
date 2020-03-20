@@ -30,7 +30,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          'gatsby-remark-relative-images',
+          "gatsby-remark-relative-images",
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -80,6 +80,13 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-netlify-cms`,
+    {
+      resolve: "@horacioh/gatsby-theme-instagram",
+      options: {
+        type: `account`, // optional. `account` is the default `type` value
+        username: "joshmu",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

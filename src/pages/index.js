@@ -1,6 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import { Grid } from "@horacioh/gatsby-theme-instagram"
+
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -38,6 +40,10 @@ const HomePage = ({ data, location }) => {
           News
         </Link>
       </h3>
+      <div className="instagram-container">
+        <Grid />
+      </div>
+      <br />
     </Layout>
   )
 }
