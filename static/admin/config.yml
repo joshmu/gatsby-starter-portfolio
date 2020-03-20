@@ -6,28 +6,38 @@ media_folder: content/assets
 public_folder: ../assets/
 
 collections:
+  # INDIVIDUAL PAGES
   - label: "Pages"
     name: "pages"
     files:
+      # HOME
       - label: "Home Page"
         name: "home"
         file: "/content/pages/home.md"
+        path: "{{slug}}/{{slug}}"
+        media_folder: ""
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
+      # ABOUT
       - label: "About Page"
         name: "about"
         file: "/content/pages/about.md"
+        path: "{{slug}}/{{slug}}"
+        media_folder: ""
         fields:
           - { label: Name, name: name, widget: string }
           - { label: Photo, name: photo, widget: image }
           - { label: Intro, name: intro, widget: markdown }
           - { label: "Body", name: "body", widget: "markdown" }
+  # PROJECTS
   - name: "project"
     label: "Project"
     folder: "content/projects"
     create: true
     slug: "{{slug}}"
+    path: "{{slug}}/{{slug}}"
+    media_folder: ""
     editor:
       preview: true
     fields:
@@ -35,11 +45,14 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+  # WORKS
   - name: "work"
     label: "Work"
     folder: "content/works"
     create: true
     slug: "{{slug}}"
+    path: "{{slug}}/{{slug}}"
+    media_folder: ""
     editor:
       preview: true
     fields:
@@ -47,6 +60,7 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+  # BLOG
   - name: "blog"
     label: "Blog"
     folder: "content/blog"
