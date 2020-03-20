@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const { title, intro } = data.markdownRemark.frontmatter
+  const { title, body } = data.markdownRemark.frontmatter
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -15,7 +15,7 @@ const AboutPage = ({ data, location }) => {
       <Bio />
       {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
       <h2>{title}</h2>
-      <p>{intro}</p>
+      <p>{body}</p>
       <h3>
         <Link style={{ boxShadow: `none` }} to="/">
           Back Home

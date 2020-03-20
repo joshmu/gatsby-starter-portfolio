@@ -13,8 +13,7 @@ collections:
       # HOME
       - label: "Home Page"
         name: "home"
-        file: "/content/pages/home.md"
-        path: "{{slug}}/{{slug}}"
+        file: "/content/pages/home/home.md"
         media_folder: ""
         fields:
           - { label: Title, name: title, widget: string }
@@ -22,14 +21,12 @@ collections:
       # ABOUT
       - label: "About Page"
         name: "about"
-        file: "/content/pages/about.md"
-        path: "{{slug}}/{{slug}}"
+        file: "/content/pages/about/about.md"
         media_folder: ""
         fields:
           - { label: Name, name: name, widget: string }
           - { label: Photo, name: photo, widget: image }
-          - { label: Intro, name: intro, widget: markdown }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: Body, name: body, widget: markdown }
   # PROJECTS
   - name: "project"
     label: "Project"
