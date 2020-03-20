@@ -3,7 +3,7 @@ backend:
   branch: master
 
 media_folder: content/assets
-public_folder: ../assets/
+public_folder: /
 
 collections:
   # INDIVIDUAL PAGES
@@ -24,8 +24,8 @@ collections:
         file: "/content/pages/about/about.md"
         media_folder: ""
         fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Photo, name: photo, widget: image }
+          - { label: Title, name: title, widget: string }
+          - { label: Photo, name: featuredImage, widget: image }
           - { label: Body, name: body, widget: markdown }
   # PROJECTS
   - name: "project"

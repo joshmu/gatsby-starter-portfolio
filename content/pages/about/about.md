@@ -1,7 +1,8 @@
 ---
-name: Josh Mu
-photo: ../assets/josh-jump.jpg
+title: Josh Mu
+featuredImage: josh-jump.jpg
 ---
-*This is looking like it should work.*\
+
+_This is looking like it should work._\
 \
 Some more content about **who I am and what I do**.

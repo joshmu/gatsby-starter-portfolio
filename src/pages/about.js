@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -7,7 +8,10 @@ import SEO from "../components/seo"
 
 const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const { title, body } = data.markdownRemark.frontmatter
+  const { title } = data.markdownRemark.frontmatter
+  const { html } = data.markdownRemark
+  const featuredImgFluid =
+    data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -15,7 +19,11 @@ const AboutPage = ({ data, location }) => {
       <Bio />
       {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
       <h2>{title}</h2>
-      <p>{body}</p>
+
+      <Img fluid={featuredImgFluid} alt="hero shot for about page" />
+
+      {/* <img src={photoSrc} alt="representing myself" /> */}
+      <section dangerouslySetInnerHTML={{ __html: html }} />
       <h3>
         <Link style={{ boxShadow: `none` }} to="/">
           Back Home
@@ -35,12 +43,16 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
       html
       frontmatter {
         title
-        intro
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
