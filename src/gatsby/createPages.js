@@ -1,14 +1,14 @@
 const createBlogPages = (pages, createPage, template) => {
-  pages.forEach((post, index) => {
+  pages.forEach((page, index) => {
     const previous = index === pages.length - 1 ? null : pages[index + 1].node
     const next = index === 0 ? null : pages[index - 1].node
 
     createPage({
-      path: post.node.fields.slug,
+      path: page.node.fields.slug,
       component: template,
       context: {
-        slug: post.node.fields.slug,
-        timeToRead: post.node.timeToRead,
+        slug: page.node.fields.slug,
+        timeToRead: page.node.timeToRead,
         previous,
         next,
       },
@@ -17,15 +17,15 @@ const createBlogPages = (pages, createPage, template) => {
 }
 
 const createProjectPages = (pages, createPage, template) => {
-  pages.forEach((post, index) => {
+  pages.forEach((page, index) => {
     const previous = index === pages.length - 1 ? null : pages[index + 1].node
     const next = index === 0 ? null : pages[index - 1].node
 
     createPage({
-      path: post.node.fields.slug,
+      path: page.node.fields.slug,
       component: template,
       context: {
-        slug: post.node.fields.slug,
+        slug: page.node.fields.slug,
         previous,
         next,
       },
@@ -33,16 +33,16 @@ const createProjectPages = (pages, createPage, template) => {
   })
 }
 const createWorkPages = (pages, createPage, template) => {
-  pages.forEach((post, index) => {
+  pages.forEach((page, index) => {
     const previous = index === pages.length - 1 ? null : pages[index + 1].node
     const next = index === 0 ? null : pages[index - 1].node
 
     createPage({
-      path: post.node.fields.slug,
+      path: page.node.fields.slug,
       component: template,
       context: {
-        slug: post.node.fields.slug,
-        timeToRead: post.node.timeToRead,
+        slug: page.node.fields.slug,
+        timeToRead: page.node.timeToRead,
         previous,
         next,
       },

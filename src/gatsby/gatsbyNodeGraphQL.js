@@ -1,5 +1,5 @@
 const gatsbyNodeGraphQL = `
-  blogMD: allMarkdownRemark(filter: {fields: {slug: {regex: "/blog/"}}}, sort: {fields: frontmatter___date, order: ASC}) {
+  blogMD: allMarkdownRemark(filter: {fields: {slug: {regex: "/^\\/blog/"}}}, sort: {fields: frontmatter___date, order: ASC}) {
     edges {
       node {
         frontmatter {
@@ -17,7 +17,7 @@ const gatsbyNodeGraphQL = `
       }
     }
   }
-  projectMD: allMarkdownRemark(filter: {fields: {slug: {regex: "/project/"}}}) {
+  projectMD: allMarkdownRemark(filter: {fields: {slug: {regex: "/^\\/project/"}}}) {
     edges {
       node {
         frontmatter {
@@ -34,7 +34,7 @@ const gatsbyNodeGraphQL = `
       }
     }
   }
-  workMD: allMarkdownRemark(filter: {fields: {slug: {regex: "/blog/"}}}) {
+  workMD: allMarkdownRemark(filter: {fields: {slug: {regex: "/^\\/work/"}}}) {
     edges {
       node {
         frontmatter {
