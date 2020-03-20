@@ -52,8 +52,8 @@ collections:
     folder: "content/blog"
     create: true
     slug: "{{slug}}"
-    path: "{{slug}}"
-    media_folder: "media"
+    path: "{{slug}}/{{slug}}"
+    media_folder: ""
     editor:
       preview: true
     fields:
