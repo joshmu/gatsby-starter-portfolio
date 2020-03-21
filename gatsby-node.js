@@ -25,7 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
   // console.log(JSON.stringify(result, null, 4))
-  console.log(JSON.stringify(result.data.blogMD.edges, null, 4))
+  console.log(JSON.stringify(result.data, null, 4))
 
   // collections
   createBlogPages(result.data.blogMD.edges, createPage, blogPost)
