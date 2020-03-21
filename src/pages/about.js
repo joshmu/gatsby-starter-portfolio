@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
+import ReactPlayer from 'react-player'
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -8,7 +9,7 @@ import SEO from "../components/seo"
 
 const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const { title } = data.markdownRemark.frontmatter
+  const { title, videoSourceURL, videoTitle } = data.markdownRemark.frontmatter
   const { html } = data.markdownRemark
   const featuredImgFluid =
     data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid
@@ -24,6 +25,10 @@ const AboutPage = ({ data, location }) => {
 
       {/* <img src={photoSrc} alt="representing myself" /> */}
       <section dangerouslySetInnerHTML={{ __html: html }} />
+
+      <h3>{videoTitle}</h3>
+      <ReactPlayer url={videoSourceURL} />
+
       <h3>
         <Link style={{ boxShadow: `none` }} to="/">
           Back Home
@@ -46,6 +51,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        videoSourceURL
+        videoTitle
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 1000) {

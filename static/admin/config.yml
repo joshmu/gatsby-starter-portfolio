@@ -27,6 +27,8 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: Photo, name: featuredImage, widget: image }
           - { label: Body, name: body, widget: markdown }
+          - { label: VideoURL, name: videoSourceURL, widget: string }
+          - { label: VideoTitle, name: videoTitle, widget: string }
   # PROJECTS
   - name: "project"
     label: "Project"
@@ -39,9 +41,12 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: Photo, name: featuredImage, widget: image }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: VideoURL, name: videoSourceURL, widget: string }
+      - { label: VideoTitle, name: videoTitle, widget: string }
   # WORKS
   - name: "work"
     label: "Work"
@@ -57,6 +62,8 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: VideoURL, name: videoSourceURL, widget: string }
+      - { label: VideoTitle, name: videoTitle, widget: string }
   # BLOG
   - name: "blog"
     label: "Blog"
@@ -72,3 +79,5 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: VideoURL, name: videoSourceURL, widget: string }
+      - { label: VideoTitle, name: videoTitle, widget: string }
