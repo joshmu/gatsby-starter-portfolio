@@ -1,8 +1,8 @@
 ---
 title: Josh Mu
 featuredImage: josh-jump.jpg
-videoSourceURL: https://www.youtube.com/embed/dQw4w9WgXcQ
-videoTitle: "Gatsby is Never Gonna Give You Up"
+videoSourceURL: 'https://www.youtube.com/watch?v=rbHIDVVTSNA'
+videoTitle: Khalid - Right Back ft. A Boogie Wit Da Hoodie
 ---
 
 _This is looking like it should work._\
