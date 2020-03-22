@@ -1,8 +1,13 @@
 import Typography from "typography"
-// import OceanBeachTheme from "typography-theme-ocean-beach"
-import ZachliveTheme from "typography-theme-zacklive"
 
-// OceanBeachTheme.overrideStyles = () => {
+const typography = new Typography({
+  baseFontSize: "18px",
+  baseLineHeight: 1.45,
+  headerFontFamily: ["Playfair Display", "serif"],
+  bodyFontFamily: ["Roboto", "sans-serif"],
+})
+
+// typography.overrideStyles = () => {
 //   return {
 //     a: {
 //       textDecoration: "none",
@@ -10,7 +15,8 @@ import ZachliveTheme from "typography-theme-zacklive"
 //   }
 // }
 
-const typography = new Typography(ZachliveTheme)
+// Insert styles directly into the <head>
+typography.injectStyles()
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
