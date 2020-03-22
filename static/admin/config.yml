@@ -17,6 +17,7 @@ collections:
         media_folder: ""
         fields:
           - { label: Title, name: title, widget: string }
+          - { label: Image, name: featuredImage, widget: image }
           - { label: Intro, name: intro, widget: markdown }
       # ABOUT
       - label: "About Page"
@@ -25,7 +26,7 @@ collections:
         media_folder: ""
         fields:
           - { label: Title, name: title, widget: string }
-          - { label: Photo, name: featuredImage, widget: image }
+          - { label: Image, name: featuredImage, widget: image }
           - { label: Body, name: body, widget: markdown }
           - { label: VideoURL, name: videoSourceURL, widget: string }
           - { label: VideoTitle, name: videoTitle, widget: string }
