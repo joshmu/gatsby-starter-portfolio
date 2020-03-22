@@ -19,10 +19,31 @@ const StyledContainerReactPlayer = styled.div`
 const ProjectPostTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const post = data.markdownRemark
-  const { title, videoSourceURL, videoTitle, videoPassword } = post.frontmatter
   const { html } = post
-  const featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  const {
+    title,
+    featuredImage,
+    videoSourceURL,
+    videoTitle,
+    videoPassword,
+    galleryImages,
+    reviews,
+  } = post.frontmatter
+  const featuredImgFluid = featuredImage.childImageSharp.fluid
   const { previous, next } = pageContext
+
+  // galleryImages {
+  //           childImageSharp {
+  //             fluid {
+  //               ...GatsbyImageSharpFluid
+  //             }
+  //           }
+  //         }
+  //         reviews {
+  //           critic
+  //           review
+  //           sourceURL
+  //         }
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -56,11 +77,31 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
         {/* <img src={photoSrc} alt="representing myself" /> */}
         <section dangerouslySetInnerHTML={{ __html: html }} />
 
+        {galleryImages && (
+          <div>
+            {galleryImages.map(img => (
+              <Img fluid={img.childImageSharp.fluid} />
+            ))}
+          </div>
+        )}
+
         <h3>{videoTitle}</h3>
         <StyledContainerReactPlayer>
           <ReactPlayer url={videoSourceURL} />
         </StyledContainerReactPlayer>
         {videoPassword && <em>Password: {videoPassword}</em>}
+
+        {reviews && (
+          <ul>
+            {reviews.map(review => (
+              <li>
+                <a href={review.sourceURL}>
+                  {review.review} - {review.critic}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
 
         <hr
           style={{
@@ -128,6 +169,18 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+        galleryImages {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        reviews {
+          critic
+          review
+          sourceURL
         }
       }
     }
