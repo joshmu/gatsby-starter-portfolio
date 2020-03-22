@@ -1,26 +1,16 @@
 import Typography from "typography"
-// import Wordpress2016 from "typography-theme-wordpress-2016"
-import OceanBeachTheme from "typography-theme-ocean-beach"
+// import OceanBeachTheme from "typography-theme-ocean-beach"
+import ZachliveTheme from "typography-theme-zacklive"
 
-// Wordpress2016.overrideThemeStyles = () => {
+// OceanBeachTheme.overrideStyles = () => {
 //   return {
-//     "a.gatsby-resp-image-link": {
-//       boxShadow: `none`,
+//     a: {
+//       textDecoration: "none",
 //     },
 //   }
 // }
 
-// delete Wordpress2016.googleFonts
-
-OceanBeachTheme.overrideStyles = () => {
-  return {
-    a: {
-      textDecoration: "none",
-    },
-  }
-}
-
-const typography = new Typography(OceanBeachTheme)
+const typography = new Typography(ZachliveTheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
