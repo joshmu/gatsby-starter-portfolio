@@ -53,13 +53,13 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Video URL", name: videoSourceURL, widget: string }
       - { label: "Video Title", name: videoTitle, widget: string }
-      - label: Gallery,
-        name: galleryImages,
-        widget: list,
+      - label: "Gallery"
+        name: "galleryImages"
+        widget: "list"
         field: { label: Image, name: image, widget: image }
-      - label: Reviews,
-        name: reviews,
-        widget: list,
+      - label: "Reviews"
+        name: "reviews"
+        widget: "list"
         fields:
           - { label: Review, name: review, widget: string }
           - { label: Critic, name: critic, widget: string }
