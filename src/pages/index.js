@@ -7,10 +7,13 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-// TODO: check netlifycms if 'about' and 'home' info work and how it is created
-// todo: use graphql to find this data
-// todo: inject in to pages
-// todo: save as starter > then move to new repo for nelly's site design
+import styled from "styled-components"
+
+const StyledWrapperInstagram = styled.div`
+  a {
+    box-shadow: none;
+  }
+`
 
 const HomePage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -40,9 +43,9 @@ const HomePage = ({ data, location }) => {
           News
         </Link>
       </h3>
-      <div className="instagram-container">
+      <StyledWrapperInstagram>
         <Grid />
-      </div>
+      </StyledWrapperInstagram>
       <br />
     </Layout>
   )

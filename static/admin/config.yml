@@ -38,20 +38,20 @@ collections:
     path: "{{slug}}/{{slug}}"
     media_folder: ""
     editor:
-      preview: true
+      preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: Photo, name: featuredImage, widget: image }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: VideoURL, name: videoSourceURL, widget: string }
-      - { label: VideoTitle, name: videoTitle, widget: string }
+      - { label: "Video URL", name: videoSourceURL, widget: string }
+      - { label: "Video Title", name: videoTitle, widget: string }
   # WORKS
   - name: "work"
     label: "Work"
     folder: "content/works"
-    create: true
+    create: false
     slug: "{{slug}}"
     path: "{{slug}}/{{slug}}"
     media_folder: ""
@@ -62,8 +62,8 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: VideoURL, name: videoSourceURL, widget: string }
-      - { label: VideoTitle, name: videoTitle, widget: string }
+      - { label: "Video URL", name: videoSourceURL, widget: string }
+      - { label: "Video Title", name: videoTitle, widget: string }
   # BLOG
   - name: "blog"
     label: "Blog"
@@ -73,11 +73,11 @@ collections:
     path: "{{slug}}/{{slug}}"
     media_folder: ""
     editor:
-      preview: true
+      preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: VideoURL, name: videoSourceURL, widget: string }
-      - { label: VideoTitle, name: videoTitle, widget: string }
+      - { label: "Video URL", name: videoSourceURL, widget: string }
+      - { label: "Video Title", name: videoTitle, widget: string }
