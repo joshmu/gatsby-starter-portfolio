@@ -46,20 +46,48 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: Photo, name: featuredImage, widget: image }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Video URL", name: videoSourceURL, widget: string }
-      - { label: "Video Title", name: videoTitle, widget: string }
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: Photo, name: featuredImage, widget: image, required: false }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          required: false,
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - {
+          label: "Video URL",
+          name: videoSourceURL,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: "Video Title",
+          name: videoTitle,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: "Video Password",
+          name: videoPassword,
+          widget: string,
+          required: false,
+        }
       - label: "Gallery"
         name: "galleryImages"
         widget: "list"
+        required: false
         field: { label: Image, name: image, widget: image }
       - label: "Reviews"
         name: "reviews"
         widget: "list"
+        required: false
         fields:
           - { label: Review, name: review, widget: string }
           - { label: Critic, name: critic, widget: string }

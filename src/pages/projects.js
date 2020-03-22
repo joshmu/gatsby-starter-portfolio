@@ -14,8 +14,9 @@ const ProjectsIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Works" />
+      <SEO title="Projects" />
       <Bio />
+      <h2>Projects</h2>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (

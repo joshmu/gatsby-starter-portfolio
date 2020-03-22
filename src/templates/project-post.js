@@ -1,14 +1,27 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
+import ReactPlayer from "react-player"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+import styled from "styled-components"
+const StyledContainerReactPlayer = styled.div`
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  margin: ${rhythm(1.5)} 0;
+`
+
 const ProjectPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
+  const post = data.markdownRemark
+  const { title, videoSourceURL, videoTitle, videoPassword } = post.frontmatter
+  const { html } = post
+  const featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
   const { previous, next } = pageContext
 
   return (
@@ -25,7 +38,7 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: 0,
             }}
           >
-            {post.frontmatter.title}
+            {title}
           </h1>
           <p
             style={{
@@ -37,7 +50,18 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
             {post.frontmatter.date}
           </p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <Img fluid={featuredImgFluid} alt="hero shot for about page" />
+
+        {/* <img src={photoSrc} alt="representing myself" /> */}
+        <section dangerouslySetInnerHTML={{ __html: html }} />
+
+        <h3>{videoTitle}</h3>
+        <StyledContainerReactPlayer>
+          <ReactPlayer url={videoSourceURL} />
+        </StyledContainerReactPlayer>
+        {videoPassword && <em>Password: {videoPassword}</em>}
+
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -95,6 +119,16 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        videoSourceURL
+        videoTitle
+        videoPassword
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

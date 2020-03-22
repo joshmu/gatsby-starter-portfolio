@@ -16,6 +16,7 @@ const WorksIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Works" />
       <Bio />
+      <h2>Works</h2>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
