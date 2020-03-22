@@ -29,7 +29,8 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
     galleryImages,
     reviews,
   } = post.frontmatter
-  const featuredImgFluid = featuredImage.childImageSharp.fluid
+  const featuredImageFluid =
+    featuredImage === null ? null : featuredImage.childImageSharp.fluid
   const { previous, next } = pageContext
 
   // galleryImages {
@@ -72,24 +73,30 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
           </p>
         </header>
 
-        <Img fluid={featuredImgFluid} alt="hero shot for about page" />
+        {featuredImageFluid && (
+          <Img fluid={featuredImageFluid} alt="hero shot for about page" />
+        )}
 
         {/* <img src={photoSrc} alt="representing myself" /> */}
         <section dangerouslySetInnerHTML={{ __html: html }} />
 
         {galleryImages && (
           <div>
-            {galleryImages.map(img => (
-              <Img fluid={img.childImageSharp.fluid} />
+            {galleryImages.map(galleryImage => (
+              <Img fluid={galleryImage.childImageSharp.fluid} />
             ))}
           </div>
         )}
 
-        <h3>{videoTitle}</h3>
-        <StyledContainerReactPlayer>
-          <ReactPlayer url={videoSourceURL} />
-        </StyledContainerReactPlayer>
-        {videoPassword && <em>Password: {videoPassword}</em>}
+        {videoSourceURL && (
+          <div>
+            {videoTitle && <h3>{videoTitle}</h3>}
+            <StyledContainerReactPlayer>
+              <ReactPlayer url={videoSourceURL} />
+            </StyledContainerReactPlayer>
+            {videoPassword && <em>Password: {videoPassword}</em>}
+          </div>
+        )}
 
         {reviews && (
           <ul>
