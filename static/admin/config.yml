@@ -26,7 +26,12 @@ collections:
         media_folder: ""
         fields:
           - { label: Title, name: title, widget: string }
-          - { label: Image, name: featuredImage, widget: image }
+          - {
+              label: Image,
+              name: featuredImage,
+              widget: image,
+              allow_multiple: true,
+            }
           - { label: Body, name: body, widget: markdown }
           - { label: VideoURL, name: videoSourceURL, widget: string }
           - { label: VideoTitle, name: videoTitle, widget: string }
