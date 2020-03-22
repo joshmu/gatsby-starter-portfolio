@@ -1,11 +1,20 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import ReactPlayer from 'react-player'
+import ReactPlayer from "react-player"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { rhythm } from "../utils/typography"
+
+import styled from "styled-components"
+const StyledContainerReactPlayer = styled.div`
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  margin: ${rhythm(1.5)} 0;
+`
 
 const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -27,7 +36,9 @@ const AboutPage = ({ data, location }) => {
       <section dangerouslySetInnerHTML={{ __html: html }} />
 
       <h3>{videoTitle}</h3>
-      <ReactPlayer url={videoSourceURL} />
+      <StyledContainerReactPlayer>
+        <ReactPlayer url={videoSourceURL} />
+      </StyledContainerReactPlayer>
 
       <h3>
         <Link style={{ boxShadow: `none` }} to="/">
