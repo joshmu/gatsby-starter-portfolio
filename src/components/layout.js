@@ -3,10 +3,20 @@ import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
 
+import styled from "styled-components"
+
+const StyledGlobalContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${rhythm(28)};
+  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+`
+
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
+  // modify header based on path
   if (location.pathname === rootPath) {
     header = (
       <h1
@@ -50,14 +60,7 @@ const Layout = ({ location, title, children }) => {
     )
   }
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(32),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
+    <StyledGlobalContainer>
       <header>{header}</header>
       <main>{children}</main>
       <footer>
@@ -65,7 +68,7 @@ const Layout = ({ location, title, children }) => {
         {` `}
         <a href="https://www.joshmu.com">MU</a>
       </footer>
-    </div>
+    </StyledGlobalContainer>
   )
 }
 
