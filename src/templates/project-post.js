@@ -10,11 +10,23 @@ import GalleryGrid from "../components/galleryGrid"
 import { rhythm, scale } from "../utils/typography"
 
 import styled from "styled-components"
+
+const StyledWrapperReactPlayer = styled.div`
+  margin-top: ${rhythm(1)};
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+  sm {
+    ${scale(-0.25)}
+  }
+`
+
 const StyledContainerReactPlayer = styled.div`
   background-color: black;
   display: flex;
   justify-content: center;
-  margin: ${rhythm(1.5)} 0;
+  margin: ${rhythm(0.5)} 0;
 `
 
 const ProjectPostTemplate = ({ data, pageContext, location }) => {
@@ -33,19 +45,6 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
   const featuredImageFluid =
     featuredImage === null ? null : featuredImage.childImageSharp.fluid
   const { previous, next } = pageContext
-
-  // galleryImages {
-  //           childImageSharp {
-  //             fluid {
-  //               ...GatsbyImageSharpFluid
-  //             }
-  //           }
-  //         }
-  //         reviews {
-  //           critic
-  //           review
-  //           sourceURL
-  //         }
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -84,25 +83,37 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
         {galleryImages && <GalleryGrid items={galleryImages} />}
 
         {videoSourceURL && (
-          <div>
+          <StyledWrapperReactPlayer>
             {videoTitle && <h3>{videoTitle}</h3>}
+            {videoPassword && (
+              <sm>
+                Password: <em>{videoPassword}</em>
+              </sm>
+            )}
+
             <StyledContainerReactPlayer>
               <ReactPlayer url={videoSourceURL} />
             </StyledContainerReactPlayer>
-            {videoPassword && <em>Password: {videoPassword}</em>}
-          </div>
+          </StyledWrapperReactPlayer>
         )}
 
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
         {reviews && (
-          <ul>
-            {reviews.map((review, idx) => (
-              <li key={idx}>
-                <a href={review.sourceURL}>
-                  {review.review} - {review.critic}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <h3>Critic Reviews</h3>
+            <ul>
+              {reviews.map((review, idx) => (
+                <li key={idx}>
+                  {review.review} -{" "}
+                  <a href={review.sourceURL}>{review.critic}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
 
         <hr

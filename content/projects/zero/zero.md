@@ -4,7 +4,7 @@ featuredImage: hair.jpeg
 date: 2020-03-19T06:37:21.441Z
 description: A work I created on Sydney Dance Company for their New Breed 2019 Season
 videoSourceURL: "https://vimeo.com/394136844"
-videoTitle: ZERO
+videoTitle: ZERO Footage
 videoPassword: joshmuzero
 galleryImages:
   - newbreed19_zero_191128_256_web_bypedrogreig.jpg
