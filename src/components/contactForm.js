@@ -17,14 +17,17 @@ const StyledFormWrapper = styled.div`
     align-items: flex-start;
   }
   label {
+    width: inherit;
     letter-spacing: 1px;
     font-family: "Playfair Display", serif;
+    display: flex;
+    flex-direction: column;
+    min-width: ${rhythm(16)};
   }
   input,
   textarea {
     margin: ${rhythm(0.25)} 0;
     padding: ${rhythm(0.25)};
-    min-width: ${rhythm(16)};
     border: 1px solid ${dark};
     border-radius: 2px;
   }
@@ -42,6 +45,10 @@ const StyledFormWrapper = styled.div`
     }
   }
 `
+const StyledContactFormNotification = styled.span`
+  margin-left: ${rhythm(0.5)};
+  font-style: italic;
+`
 
 const encode = data => {
   return Object.keys(data)
@@ -53,7 +60,7 @@ const ContactForm = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
-  const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(true)
 
   const handleSubmit = e => {
     fetch("/", {
@@ -67,7 +74,7 @@ const ContactForm = () => {
       }),
     })
       .then(() => {
-        alert("Success!")
+        // alert("Success!")
         setSuccess(true)
       })
       .catch(error => alert(error))
@@ -79,30 +86,40 @@ const ContactForm = () => {
     // <form name="contact" netlify netlify-honeypot="bot-field" hidden>
     <StyledFormWrapper>
       <form onSubmit={handleSubmit}>
-        <label>Your Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
-        <label>Your Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <label>Message:</label>
-        <textarea
-          name="message"
-          value={message}
-          rows="4"
-          onChange={e => setMessage(e.target.value)}
-        />
-        <button type="submit">Send</button>
+        <label>
+          Your Name:
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+        </label>
+        <label>
+          Your Email:
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+        </label>
+        <label>
+          Message:
+          <textarea
+            name="message"
+            value={message}
+            rows="4"
+            onChange={e => setMessage(e.target.value)}
+          />
+        </label>
+        <span>
+          <button type="submit">Send</button>
+          <StyledContactFormNotification>
+            {success && "Message Sent."}
+          </StyledContactFormNotification>
+        </span>
       </form>
-      <h4>{success && "Message Sent."}</h4>
     </StyledFormWrapper>
   )
 }
