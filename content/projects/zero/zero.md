@@ -26,5 +26,3 @@ Direction: Josh Mu Choreography: Josh Mu in collaboration with the dancers of Sy
 Costume: Aleisa Jelbart
 Special Thanks: Marlo Benjamin & James Brown
 Video: Pedro Grieg
-
-View Zero on Vimeo: (password: joshmuzero) [zero wide angle footage](https://vimeo.com/394136844).

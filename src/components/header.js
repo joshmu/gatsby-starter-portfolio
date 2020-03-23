@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
   align-items: center;
 `
 
-const StyledNav = styled.div`
+const StyledNav = styled.nav`
   ul {
     display: flex;
     align-content: center;

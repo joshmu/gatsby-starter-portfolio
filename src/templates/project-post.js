@@ -6,6 +6,7 @@ import ReactPlayer from "react-player"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import GalleryGrid from "../components/galleryGrid"
 import { rhythm, scale } from "../utils/typography"
 
 import styled from "styled-components"
@@ -80,13 +81,7 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
         {/* <img src={photoSrc} alt="representing myself" /> */}
         <section dangerouslySetInnerHTML={{ __html: html }} />
 
-        {galleryImages && (
-          <div>
-            {galleryImages.map(galleryImage => (
-              <Img fluid={galleryImage.childImageSharp.fluid} />
-            ))}
-          </div>
-        )}
+        {galleryImages && <GalleryGrid items={galleryImages} />}
 
         {videoSourceURL && (
           <div>
@@ -100,8 +95,8 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
 
         {reviews && (
           <ul>
-            {reviews.map(review => (
-              <li>
+            {reviews.map((review, idx) => (
+              <li key={idx}>
                 <a href={review.sourceURL}>
                   {review.review} - {review.critic}
                 </a>
@@ -179,6 +174,7 @@ export const pageQuery = graphql`
         }
         galleryImages {
           childImageSharp {
+            id
             fluid {
               ...GatsbyImageSharpFluid
             }
