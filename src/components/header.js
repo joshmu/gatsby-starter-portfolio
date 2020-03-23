@@ -18,6 +18,10 @@ const StyledNav = styled.div`
     align-content: center;
     justify-content: space-around;
 
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+
     li {
       margin: 0 ${rhythm(0.25)};
       a {

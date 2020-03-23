@@ -5,6 +5,10 @@ $red500: #f44336;
 $primary: $indigo600;
 $warning: $red500;
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   background-color: $indigo50;
 }
