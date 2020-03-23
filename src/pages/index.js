@@ -6,6 +6,7 @@ import { Grid } from "@horacioh/gatsby-theme-instagram"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ContactForm from "../components/contactForm"
 
 import styled from "styled-components"
 
@@ -27,6 +28,7 @@ const HomePage = ({ data, location }) => {
         <Grid />
       </StyledWrapperInstagram>
       <br />
+      <ContactForm />
     </Layout>
   )
 }
