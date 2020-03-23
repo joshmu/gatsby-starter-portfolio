@@ -4,12 +4,18 @@ import { rhythm, scale } from "../utils/typography"
 import LinkLink from "./listLink"
 
 import styled from "styled-components"
-import { $dark } from "../styles/variables"
+import { dark, hoverTransition } from "../styles/variables"
 
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`
+
+const StyledLogoTitle = styled.div`
+  a {
+    opacity: 1;
+  }
 `
 
 const StyledNav = styled.nav`
@@ -25,7 +31,12 @@ const StyledNav = styled.nav`
     li {
       margin: 0 ${rhythm(0.25)};
       a {
-        color: ${$dark};
+        color: ${dark};
+        opacity: 0.7;
+        transition: opacity ${hoverTransition} ease;
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
@@ -34,7 +45,7 @@ const StyledNav = styled.nav`
 const Header = ({ location, title }) => {
   return (
     <StyledHeader>
-      <div>
+      <StyledLogoTitle>
         <h1
           style={{
             ...scale(1.5),
@@ -53,7 +64,7 @@ const Header = ({ location, title }) => {
             {title}
           </Link>
         </h1>
-      </div>
+      </StyledLogoTitle>
 
       <StyledNav>
         <ul>
@@ -61,6 +72,7 @@ const Header = ({ location, title }) => {
           <LinkLink to="projects" />
           <LinkLink to="works" />
           <LinkLink to="blog" title="news" />
+          <LinkLink to="contact" />
         </ul>
       </StyledNav>
     </StyledHeader>

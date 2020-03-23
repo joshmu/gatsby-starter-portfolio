@@ -64,5 +64,15 @@ exports.onCreatePage = ({ page, actions }) => {
         slug: `/pages/about/about/`,
       },
     })
+  } else if (page.internalComponentName === "ComponentContact") {
+    deletePage(page)
+    // You can access the variable "house" in your page queries now
+    createPage({
+      ...page,
+      context: {
+        ...page.context,
+        slug: `/pages/contact/contact/`,
+      },
+    })
   }
 }

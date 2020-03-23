@@ -4,24 +4,28 @@ $grey900: #212121;
 $red500: #f44336;
 $primary: $indigo600;
 $warning: $red500;
+$clouds: #ecf0f1;
+$light: $clouds;
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  background-color: $indigo50;
+  background-color: $clouds;
 }
 
 a {
   // color: $primary;
   text-decoration: none;
-  opacity: 0.9;
-  &:hover {
-    opacity: 1;
-  }
 }
 
 ul {
   list-style: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
 }

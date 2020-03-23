@@ -25,16 +25,40 @@ collections:
         file: "/content/pages/about/about.md"
         media_folder: ""
         fields:
-          - { label: Title, name: title, widget: string }
+          - { label: Title, name: title, widget: string, required: false }
           - {
               label: Image,
               name: featuredImage,
               widget: image,
-              allow_multiple: true,
+              required: false,
             }
-          - { label: Body, name: body, widget: markdown }
-          - { label: VideoURL, name: videoSourceURL, widget: string }
-          - { label: VideoTitle, name: videoTitle, widget: string }
+          - { label: Body, name: body, widget: markdown, required: false }
+          - {
+              label: VideoURL,
+              name: videoSourceURL,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: VideoTitle,
+              name: videoTitle,
+              widget: string,
+              required: false,
+            }
+      # CONTACT
+      - label: "Contact Page"
+        name: "contact"
+        file: "/content/pages/contact/contact.md"
+        media_folder: ""
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Image,
+              name: featuredImage,
+              widget: image,
+              required: false,
+            }
+          - { label: Body, name: body, widget: markdown, required: false }
   # PROJECTS
   - name: "project"
     label: "Project"
