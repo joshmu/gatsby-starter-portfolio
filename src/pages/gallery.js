@@ -14,6 +14,7 @@ const GalleryPage = ({ data, location }) => {
       <SEO title="Contact Page" />
       <Bio />
 
+      <h2>Gallery</h2>
       <Gallery />
 
       <h3>
