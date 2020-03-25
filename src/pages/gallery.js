@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Gallery from "../components/gallery"
 
 const GalleryPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -12,7 +13,8 @@ const GalleryPage = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Contact Page" />
       <Bio />
-      <h2>Gallery</h2>
+
+      <Gallery />
 
       <h3>
         <Link style={{ boxShadow: `none` }} to="/">
