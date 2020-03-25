@@ -3,6 +3,7 @@ import { rhythm } from "../utils/typography"
 
 import styled from "styled-components"
 import { dark, light } from "../styles/variables"
+
 const StyledFormWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -12,6 +13,7 @@ const StyledFormWrapper = styled.div`
   form {
     flex: 1;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -22,7 +24,7 @@ const StyledFormWrapper = styled.div`
     font-family: "Playfair Display", serif;
     display: flex;
     flex-direction: column;
-    min-width: ${rhythm(16)};
+    max-width: ${rhythm(14)};
   }
   input,
   textarea {
@@ -60,7 +62,7 @@ const ContactForm = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
-  const [success, setSuccess] = useState(true)
+  const [success, setSuccess] = useState(false)
 
   const handleSubmit = e => {
     fetch("/", {

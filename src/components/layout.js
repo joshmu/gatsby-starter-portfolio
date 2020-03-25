@@ -10,6 +10,10 @@ const StyledGlobalContainer = styled.div`
   margin-right: auto;
   max-width: ${rhythm(28)};
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+
+  @media (max-width: 600px) {
+    padding: ${rhythm(1)} ${rhythm(0.25)};
+  }
 `
 
 const Layout = ({ location, title, children }) => {
