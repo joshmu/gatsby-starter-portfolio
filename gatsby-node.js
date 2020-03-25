@@ -48,30 +48,28 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
+const pagesToAddContext = ["about", "contact", "gallery"]
 // deleting pages and recreating to provide context for graphql queries
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
 
   // console.log({ page })
+  const recreatePage = pagesToAddContext.filter(p => {
+    const regex = new RegExp(p, "gi")
+    return page.internalComponentName.match(regex)
+  })
+  console.log({ recreatePage })
 
-  if (page.internalComponentName === "ComponentAbout") {
+  if (recreatePage) {
+    const id = recreatePage[0]
+    console.log(`recreating page: ${id}`)
     deletePage(page)
     // You can access the variable "house" in your page queries now
     createPage({
       ...page,
       context: {
         ...page.context,
-        slug: `/pages/about/about/`,
-      },
-    })
-  } else if (page.internalComponentName === "ComponentContact") {
-    deletePage(page)
-    // You can access the variable "house" in your page queries now
-    createPage({
-      ...page,
-      context: {
-        ...page.context,
-        slug: `/pages/contact/contact/`,
+        slug: `/pages/${id}/${id}/`,
       },
     })
   }

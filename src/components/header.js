@@ -70,8 +70,8 @@ const Header = ({ location, title }) => {
         <ul>
           <LinkLink to="about" />
           <LinkLink to="projects" />
-          <LinkLink to="works" />
-          <LinkLink to="blog" title="news" />
+          <LinkLink to="gallery" />
+          {/* <LinkLink to="blog" title="news" /> */}
           <LinkLink to="contact" />
         </ul>
       </StyledNav>
