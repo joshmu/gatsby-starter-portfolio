@@ -19,6 +19,8 @@ const Gallery = () => {
                 src
                 srcSet
                 originalName
+                presentationWidth
+                presentationHeight
               }
             }
           }
@@ -31,13 +33,15 @@ const Gallery = () => {
       src,
       srcSet,
       originalName: caption,
+      presentationWidth: width,
+      presentationHeight: height,
     } = edge.node.childImageSharp.fluid
     return {
       src,
       srcSet,
       caption,
-      width: randomNumber(3, 6),
-      height: randomNumber(3, 4),
+      width,
+      height,
     }
   })
 
@@ -76,10 +80,3 @@ const Gallery = () => {
 }
 
 export default Gallery
-
-// Function to generate random number
-function randomNumber(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
