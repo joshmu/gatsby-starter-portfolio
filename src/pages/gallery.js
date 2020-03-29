@@ -11,7 +11,7 @@ const GalleryPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Contact Page" />
+      <SEO title="Gallery Page" />
       <Bio />
 
       <h2>Gallery</h2>

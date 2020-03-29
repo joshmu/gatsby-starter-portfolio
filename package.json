@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@horacioh/gatsby-theme-instagram": "^0.1.6",
+    "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-feed": "^2.3.29",
@@ -19,6 +20,7 @@
     "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-sass": "^2.1.31",
     "gatsby-plugin-sharp": "^2.4.13",
+    "gatsby-plugin-styled-components": "^3.2.1",
     "gatsby-plugin-typography": "^2.3.25",
     "gatsby-remark-copy-linked-files": "^2.1.40",
     "gatsby-remark-images": "^3.1.50",

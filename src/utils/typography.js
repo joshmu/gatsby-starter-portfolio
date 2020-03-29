@@ -16,7 +16,7 @@ const typography = new Typography({
 // }
 
 // Insert styles directly into the <head>
-typography.injectStyles()
+// typography.injectStyles()
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
