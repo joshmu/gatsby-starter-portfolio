@@ -15,7 +15,7 @@
     "gatsby-plugin-feed": "^2.3.29",
     "gatsby-plugin-google-analytics": "^2.1.38",
     "gatsby-plugin-manifest": "^2.2.48",
-    "gatsby-plugin-netlify-cms": "^4.1.43",
+    "gatsby-plugin-netlify-cms": "^7.8.0",
     "gatsby-plugin-offline": "^3.0.41",
     "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-sass": "^2.1.31",
