@@ -10,7 +10,7 @@
   "dependencies": {
     "@horacioh/gatsby-theme-instagram": "^0.1.6",
     "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^2.32.13",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-feed": "^2.3.29",
     "gatsby-plugin-google-analytics": "^2.1.38",
